@@ -15,7 +15,7 @@ app.post('/api/messages', (req, res) => {
   res.header('Content-Type', 'application/json');
   client.messages
     .create({
-      // from: process.env.TWILIO_PHONE_NUMBER,
+      from: process.env.TWILIO_PHONE_NUMBER,
       to: req.body.to,
       body: req.body.body
     })
@@ -29,5 +29,7 @@ app.post('/api/messages', (req, res) => {
 });
 
 app.use('/', express.static('build'))
+const PORT = process.env.PORT || 8080;
+app.listen(PORT)
 
 module.exports = app;
