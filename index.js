@@ -31,5 +31,3 @@ app.post('/api/messages', (req, res) => {
 app.use('/', express.static('build'))
 const PORT = process.env.PORT || 8080;
 app.listen(PORT)
-
-module.exports = app;
